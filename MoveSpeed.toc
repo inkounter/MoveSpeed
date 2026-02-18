@@ -3,5 +3,9 @@
 ## Title: MoveSpeed
 ## Version: 1.0
 ## Notes: Shows a text on your screen for your current move speed.
+## SavedVariables: MoveSpeedDB
+
+Libs/LibStub/LibStub.lua
+Libs/LibEditMode/embed.xml
 
 main.lua
