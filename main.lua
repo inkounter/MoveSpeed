@@ -114,17 +114,18 @@ local settings = {
 
 -- Speed logic
 
-local function getSpeed()
+local speedCurve = C_CurveUtil.CreateCurve()
+speedCurve:SetType(Enum.LuaCurveType.Linear)
+speedCurve:AddPoint(0.0, 0.0)
+speedCurve:AddPoint(70000.0, 1000000.0)   -- 700 ~ 10000; extrapolate by x100
+
+local function updateSpeed()
     local isGliding, _, speed = C_PlayerInfo.GetGlidingInfo()
     if not isGliding then
         speed = GetUnitSpeed("player")
     end
 
-    return speed / 7 * 100
-end
-
-local function updateSpeed()
-    fontstring:SetFormattedText("%.0f%%", getSpeed())
+    fontstring:SetFormattedText("%.0f%%", speedCurve:Evaluate(speed))
 end
 
 -- Event handling

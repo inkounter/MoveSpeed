@@ -1,4 +1,4 @@
-## Interface: 120000
+## Interface: 120005
 ## Author: Inkounter
 ## Title: MoveSpeed
 ## Version: 1.0
